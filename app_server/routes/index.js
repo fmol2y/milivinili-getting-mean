@@ -2,22 +2,29 @@ const express = require('express');
 const router = express.Router();
 const ctrlUser = require('../controllers/userController');
 const ctrlOthers = require('../controllers/othersController');
-const ctrlVinylsArtists = require('../controllers/vinylArtistController');
+const ctrlVinyls = require('../controllers/vinylController');
+const ctrlArtists = require('../controllers/artistController');
 const ctrlExchange = require('../controllers/exchangeController');
 const ctrlHome = require('../controllers/homeController');
 /* GET home page. */
 router.get('/', ctrlHome.index);
 
 /* Vinyl & artist related pages */
-router.get('/vinyls', ctrlVinylsArtists.vinylList);
-router.get('/vinyls/vinyl', ctrlVinylsArtists.vinylInfo);
-router.get('/artists', ctrlVinylsArtists.artistInfo);
-router.get('/artists/artist', ctrlVinylsArtists.artistInfo);
+router.get('/vinyls', ctrlVinyls.vinylList);
+router.get('/vinyls/vinyl', ctrlVinyls.vinylInfo);
+router.get('/vinyls/new', ctrlVinyls.vinylAdd);
+router.get('/artists', ctrlArtists.artistList);
+router.get('/artists/artist', ctrlArtists.artistInfo);
+router.get('/artists/new', ctrlArtists.artistAdd);
 
 /* Exchange related pages */
 router.get('/exchanges', ctrlExchange.exchangeList);
 router.get('/exchanges/exchange', ctrlExchange.exchangeInfo);
 
+/* User related pages */
+router.get('/user', ctrlUser.userInfo);
+
 /* Other pages */
 router.get('/about', ctrlOthers.about);
+
 module.exports = router;
