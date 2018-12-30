@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ctrlUser = require('../controllers/userController');
-const ctrlOthers = require('../controllers/othersController');
+const ctrlAbout = require('../controllers/aboutController');
 const ctrlVinyls = require('../controllers/vinylController');
 const ctrlArtists = require('../controllers/artistController');
 const ctrlExchange = require('../controllers/exchangeController');
@@ -28,6 +28,6 @@ router.get('/exchanges/new', ctrlExchange.exchangeAdd);
 router.get('/user', ctrlUser.userInfo);
 
 /* Other pages */
-router.get('/about', ctrlOthers.about);
+router.get('/about', ctrlAbout.about);
 
 module.exports = router;
